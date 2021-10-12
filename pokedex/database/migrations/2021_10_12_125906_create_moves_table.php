@@ -15,6 +15,10 @@ class CreateMovesTable extends Migration
     {
         Schema::create('moves', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('power');
+            $table->integer('accuracy');
+            $table->foreignId('type_id');
             $table->timestamps();
         });
     }

@@ -14,7 +14,8 @@ class CreateMovePokemonTable extends Migration
     public function up()
     {
         Schema::create('move__pokemon', function (Blueprint $table) {
-            $table->id();
+            $table->foreignId('move_id');
+            $table->foreignId('pokemon_id');
             $table->timestamps();
         });
     }

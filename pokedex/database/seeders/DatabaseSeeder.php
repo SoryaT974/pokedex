@@ -13,6 +13,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+        {
+            $this->call([
+                Move_PokemonSeeder::class,
+                MoveSeeder::class,
+                PokemonSeeder::class,
+                TypeSeeder::class
+            ]);
+        }
     }
+
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+
 class TypeSeeder extends Seeder
 {
     /**
@@ -14,6 +15,7 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('types')->insert(
             [
                 'id' => 1,
@@ -22,5 +24,7 @@ class TypeSeeder extends Seeder
             ]
            
         );
+
+
     }
 }

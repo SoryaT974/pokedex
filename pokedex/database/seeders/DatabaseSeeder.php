@@ -12,13 +12,6 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
         {
             $this->call([
                 Move_PokemonSeeder::class,
@@ -27,6 +20,5 @@ class DatabaseSeeder extends Seeder
                 TypeSeeder::class
             ]);
         }
-    }
 
 }

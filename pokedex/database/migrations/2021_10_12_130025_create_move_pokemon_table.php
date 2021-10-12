@@ -13,7 +13,7 @@ class CreateMovePokemonTable extends Migration
      */
     public function up()
     {
-        Schema::create('move__pokemon', function (Blueprint $table) {
+        Schema::create('move_pokemon', function (Blueprint $table) {
             $table->foreignId('move_id');
             $table->foreignId('pokemon_id');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateMovePokemonTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('move__pokemon');
+        Schema::dropIfExists('move_pokemon');
     }
 }

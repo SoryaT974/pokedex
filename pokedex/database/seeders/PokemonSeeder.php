@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
+=======
+>>>>>>> ffac13467fcdc4e9423178d55643a30ed65d7f7a
 
 class PokemonSeeder extends Seeder
 {
@@ -14,6 +17,7 @@ class PokemonSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
          DB::table('pokemons')->insert(
             [
                 'id' => 1,
@@ -28,3 +32,8 @@ class PokemonSeeder extends Seeder
 }
 
 
+=======
+        //
+    }
+}
+>>>>>>> ffac13467fcdc4e9423178d55643a30ed65d7f7a

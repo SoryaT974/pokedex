@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
+=======
+>>>>>>> ffac13467fcdc4e9423178d55643a30ed65d7f7a
 
 class MoveSeeder extends Seeder
 {
@@ -14,6 +17,7 @@ class MoveSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
          DB::table('moves')->insert(
             [
                 'id' => 1,
@@ -25,5 +29,8 @@ class MoveSeeder extends Seeder
             ]
            
         );
+=======
+        //
+>>>>>>> ffac13467fcdc4e9423178d55643a30ed65d7f7a
     }
 }

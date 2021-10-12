@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class Move_PokemonSeeder extends Seeder
+class Move_pokemonSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,13 @@ class Move_PokemonSeeder extends Seeder
      */
     public function run()
     {
-        //
+         DB::table('move_pokemon')->insert(
+            [
+                'move_id' => 1,
+                'pokemon_id' => 1,
+                'created_at' => now()
+            ]
+           
+        );
     }
 }

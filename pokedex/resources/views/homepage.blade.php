@@ -3,17 +3,19 @@
 @section('title', 'Accueil')
 
 @section('content')
-    <h1>Accueil du site</h1>
-    
+    <h1>Pokedex</h1>
     
     
     <ul class="list-unstyled">
             <li>
-                <article>
-                    <header>
-                        <h2>hfdghgfhdf</h2>
-                    </header>
-                </article>
+                <div>
+                    <p></p>
+                    <p></p>
+                    <figure>
+                                
+                    </figure>
+                    <p></p>
+                </div>
             </li>
     </ul>
 @endsection

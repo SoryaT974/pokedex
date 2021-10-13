@@ -9,19 +9,16 @@ class Api
     const IMAGE_BASE_URL = 'http://pokeapi.co/media/sprites/pokemon';
     const API_BASE_URL = 'https://pokeapi.co/api/v2';
     
-    protected string $apiKey;
     protected Client $httpClient;
     
-    public function __construct(string $apiKey)
+    public function __construct()
     {
-        $this->apiKey = $apiKey;
         $this->httpClient = new Client();
     }
     
     public function search(string $query, array $params = []): array
     {
         $query = [
-            'api_key' => $this->apiKey,
             'query' => $query
         ];
         
@@ -39,26 +36,27 @@ class Api
     public function findPokemon(int $id): \stdClass
     {
         $queryString = http_build_query([
-            'api_key' => $this->apiKey
         ]);
         
         $response = $this->httpClient->request(
             'GET',
-            self::API_BASE_URL . '/movie/' . $id . '?' . $queryString
+            self::API_BASE_URL . '/pokemon/' . $id . '?' . $queryString
         );
         
         return json_decode($response->getBody());
     }
     
-    public function getApiKey(): string
-    {
-        return $this->apiKey;
+    public function findAllPokemon(): array {
+        $response = $this->httpClient->request(
+            'GET',
+            self::API_BASE_URL . '/pokemon'
+        );
+        
+        return json_decode($response->getBody(), true);
     }
     
-    public function setApiKey(string $apiKey): void
-    {
-        $this->apiKey = $apiKey;
-    }
+    
+    
     
     public function getHttpClient(): Client
     {

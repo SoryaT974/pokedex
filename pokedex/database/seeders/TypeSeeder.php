@@ -19,7 +19,7 @@ class TypeSeeder extends Seeder
         DB::table('types')->insert(
             [
                 'id' => 1,
-                'name' => 'pokemon1',
+                'name' => 'Plante',
                 'created_at' => now()
             ]
            

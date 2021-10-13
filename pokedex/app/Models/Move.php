@@ -9,5 +9,11 @@ class Move extends Model
 {
     use HasFactory;
     
+    public function user(){
+        return $this->belongsToMany(User::class);
+    }
+    
+    public function type() {
+        return $this->hasMany(Type::class);
     }
 }

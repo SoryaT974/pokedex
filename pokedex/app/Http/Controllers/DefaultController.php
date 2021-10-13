@@ -12,7 +12,17 @@ class DefaultController extends Controller
         $api = new Api();
         $pokemons = $api->findAllPokemon();
         // dd($pokemons);
-        return view('homepage');
+        return view('homepage', [
+            'pokemons' => $pokemons['results']]);
+    }
+    
+    public function homeDetails()
+    {
+        $api = new Api();
+        $pokemonsDetails = $api->findPokemon();
+        // dd($pokemonsDetails);
+        return view('homepage', [
+            'pokemonsDetails' => $pokemonsDetails['results']]);
     }
     
     

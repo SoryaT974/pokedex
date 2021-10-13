@@ -37,6 +37,20 @@
                     <span class="navbar-text">
                     </span>
                 </div>
+                
+                
+                <form action="<?= url('/') ?>" id="search-form" class="d-flex">
+                    <select name="lang" id="lang" class="form-control me-2">
+                        
+                        <option value=""></option>
+                        
+                    </select>
+                    
+                    <input name="search" class="form-control me-2" type="search" placeholder="Pokemon à rechercher" aria-label="Pokemon à rechercher">
+                    <button class="btn btn-primary" type="submit">Rechercher</button>
+                </form>
+                
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

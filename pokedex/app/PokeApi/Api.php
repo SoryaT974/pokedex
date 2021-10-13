@@ -27,7 +27,7 @@ class Api
         
         $response = $this->httpClient->request(
             'GET', 
-            self::API_BASE_URL . '/{id}?' . $queryString
+            self::API_BASE_URL . '/' . $queryString
         );
         
         return json_decode($response->getBody(), true);
@@ -35,21 +35,15 @@ class Api
     
     public function findPokemon(int $id): \stdClass
     {
-        $queryString = http_build_query([
-        ]);
+        $response = file_get_contents('https://pokeapi.co/api/v2/pokemon/' . $id);
         
-        $response = $this->httpClient->request(
-            'GET',
-            self::API_BASE_URL . '/pokemon/' . $id . '?' . $queryString
-        );
-        
-        return json_decode($response->getBody());
+        return json_decode($response);
     }
     
-    public function findAllPokemon(): array {
+    public function findAllPokemon() {
         $response = $this->httpClient->request(
             'GET',
-            self::API_BASE_URL . '/pokemon'
+            self::API_BASE_URL . '/pokemon' . '?limit=151&offset=0'
         );
         
         return json_decode($response->getBody(), true);

@@ -20,7 +20,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [DefaultController::class, 'home'])->name('home');
 
-Route::get('/pokemon', [PokemonController::class, 'show'])->name('pokemon');
+Route::get('/pokemon/{id}/pokemonDetails', [DefaultController::class, 'homeDetails'])->name('homeDetails');
 
 Route::get('/register', [UserController::class, 'create'])->name('users.create');
 Route::post('/register', [UserController::class, 'store'])->name('users.store');

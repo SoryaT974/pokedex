@@ -21,10 +21,14 @@ class TypeSeeder extends Seeder
                 'id' => 1,
                 'name' => 'Plante',
                 'created_at' => now()
-            ]
-           
-        );
-
+            ]);
+            
+        DB::table('types')->insert(
+            [
+                'id' => 2,
+                'name' => 'Poison',
+                'created_at' => now()
+            ]);
 
     }
 }

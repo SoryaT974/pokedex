@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 
 class TypeSeeder extends Seeder
@@ -15,20 +16,29 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
+        $typesToCreate = [];
+       
+        $url = 'https://pokeapi.co/api/v2/type/';
+        do {
+            $response = Http::get($url);
+            $content = $response->json();
 
-        DB::table('types')->insert(
-            [
-                'id' => 1,
-                'name' => 'Plante',
-                'created_at' => now()
-            ]);
-            
-        DB::table('types')->insert(
-            [
-                'id' => 2,
-                'name' => 'Poison',
-                'created_at' => now()
-            ]);
+            $url = $content['next'];
 
+            $types = $content['results'];
+           
+            foreach ($types as $type) {
+                $typeToCreate = [];
+
+                $typeResponse = Http::get($type['url']);
+                $typeDetails = $typeResponse->json();
+               
+                $typeToCreate['name'] = $type['name'];
+                $typeToCreate['id'] = null;
+
+                $typesToCreate[] = $typeToCreate;
+            }
+        } while (null !== $url);
+        DB::table('types')->insert($typesToCreate);
     }
 }

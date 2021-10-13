@@ -23,14 +23,14 @@
                                 <a href="#" class="nav-link">Nouveau pokemon</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Déconnexion</a>
+                                <a href="{{ route('users.logout') }}" class="nav-link">Déconnexion</a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Inscription</a>
+                                <a href="{{ route('users.create') }}" class="nav-link">Inscription</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Connexion</a>
+                                <a href="{{ route('users.login') }}" class="nav-link">Connexion</a>
                             </li>
                         @endauth
                     </ul>
@@ -45,6 +45,7 @@
     </header>
     
     <main class="container my-3">
+        @yield('content')
     </main>
 </body>
 </html>

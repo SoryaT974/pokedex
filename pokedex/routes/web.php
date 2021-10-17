@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PokemonController;
+use App\Http\Controllers\MovePokemonController;
 
 
 
@@ -42,4 +43,9 @@ Route::get('/pokemon/{id}/update', [PokemonController::class, 'update'])->name('
 Route::post('/pokemon/{id}/update', [PokemonController::class, 'postUpdate'])->name('pokemon.update.post');
 
 // Delete pokemon
-Route::delete('/pokemons/{id}/delete', [PokemonController::class, 'delete'])->name('pokemon.delete');
+Route::get('/pokemons/{id}/delete', [PokemonController::class, 'delete'])->name('pokemon.delete');
+
+// Create pokemon 
+Route::get('/pokemon/{id}/addMove', [MovePokemonController::class, 'addMovePokemon'])->name('movePokemon.add');
+Route::post('/pokemon/{id}/addMove', [MovePokemonController::class, 'postAddMovePokemon'])->name('movePokemon.add.post');
+Route::get('/pokemon/{pokemonId}/deleteMove/{moveId}', [MovePokemonController::class, 'delete'])->name('movePokemon.delete');

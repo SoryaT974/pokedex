@@ -14,7 +14,7 @@ class Move extends Model
     }
     
     public function type() {
-        return $this->hasMany(Type::class);
+        return $this->hasOne(Type::class);
     }
     
     public function pokemons() {

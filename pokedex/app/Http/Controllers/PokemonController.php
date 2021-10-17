@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pokemon;
+use App\Models\Move;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,8 +27,9 @@ class PokemonController extends Controller
     public function create()
     {
         $types = Type::all();
+        $moves = Move::all();
 
-        return view('create', ['types' => $types]);
+        return view('create', ['types' => $types, 'moves' => $moves]);
     }
     
     public function postCreate(Request $request)
@@ -42,7 +44,6 @@ class PokemonController extends Controller
         $pokemon->name = $request->input('name');
         $pokemon->image = $request->input('image');
         $pokemon->type_id = $request->input('type');
-        // $pokemon->moves = $request->input('moves');
         $pokemon->save();
         
         return redirect()->route('pokemon', $pokemon->id);
@@ -63,7 +64,8 @@ class PokemonController extends Controller
     
     public function delete($id)
     {
-        Pokemon::destroy($id);
+        $pokemon = Pokemon::find($id);
+        $pokemon->delete();
 
         return redirect()->route('pokemons');
     }

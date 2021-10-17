@@ -45,7 +45,8 @@ class PokemonSeeder extends Seeder
                 $image = $pokemonDetails['sprites']['other']['official-artwork']['front_default'];
                 $pokemonToCreate['image'] = empty($image)
                 ? 'https://i.ebayimg.com/images/g/YkYAAOSwTQxgRqw~/s-l400.jpg' : $image;
-                
+
+                $pokemonToCreate['id'] = $pokemonDetails['id'];
                 $pokemonToCreate['name'] = $pokemon['name'];
                 
                  // Aller chercher l'ID du type

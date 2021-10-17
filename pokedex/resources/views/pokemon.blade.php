@@ -14,7 +14,11 @@
         <p>{{ $pokemon->type->name }}</p>
         <h3>Attaques</h3>
         @foreach($pokemon->moves as $move)
-            <p>{{ $move->name }}</p>
+        <div class="border">
+            <p>Nom : {{ $move->name }}</p>
+            <p>Puissance : {{ $move->power }}</p>
+            <p>Précision : {{ $move->accuracy }}</p>
+        </div>
         @endforeach
     </section>
 @endsection

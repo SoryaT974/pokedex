@@ -41,6 +41,10 @@
         </div>
         <div class="form-group">
             <label for="moves">Attaques</label>
+            @foreach($pokemon->moves as $move)
+                <p>{{ $move->name }}  <a href="{{ route('movePokemon.delete', ['pokemonId' => $pokemon->id, 'moveId' => $move->id]) }}" class="btn btn-danger">Supprimer</a></p>
+            @endforeach
+            <a href="{{ route('movePokemon.add', ['id' => $pokemon->id]) }}">Ajouter une attaque</a>
         </div>
         <div class="mt-2">
             <button class="btn btn-primary">Modifier</button>

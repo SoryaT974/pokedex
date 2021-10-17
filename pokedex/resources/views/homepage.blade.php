@@ -3,23 +3,16 @@
 @section('title', 'Accueil')
 
 @section('content')
-    <h1>Pokedex</h1>
-    
-    
+    <h1>Liste des pokémons</h1>
     <ul class="list-unstyled">
-            @foreach($pokemons as $pokemon)
-            <li>
-                
-                <div>
-                    <p>{{ $pokemon['name'] }}</p>
-                    <p>{{ $pokemon['url'] }}</p>
-                    <figure>
-                                
-                    </figure>
-                    <p></p>
-                </div>
-                
-            </li>
-            @endforeach
+        @foreach($pokemons as $pokemon)
+        <li>
+            <div>
+                <p>{{ $pokemon->name }}</p>
+                <a href="{{ route('pokemon', ['id' => $pokemon->id]) }}">Voir détails</a>
+            </div>
+        </li>
+        @endforeach
     </ul>
+    {{ $pokemons->links() }}
 @endsection

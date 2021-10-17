@@ -3,27 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\PokeApi\Api;
+use App\Models\Pokemon;
 
 class DefaultController extends Controller
 {
     public function home()
     {
-        $api = new Api();
-        $pokemons = $api->findAllPokemon();
-        // dd($pokemons);
-        return view('homepage', [
-            'pokemons' => $pokemons['results']]);
+        $pokemons = Pokemon::paginate(15);
+
+        return view('list', ['pokemons' => $pokemons]);
     }
-    
-    public function homeDetails()
-    {
-        $api = new Api();
-        $pokemonsDetails = $api->findPokemon();
-        // dd($pokemonsDetails);
-        return view('homepage', [
-            'pokemonsDetails' => $pokemonsDetails['results']]);
-    }
-    
-    
 }

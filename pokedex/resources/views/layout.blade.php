@@ -19,14 +19,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('pokemons') }}"  class="nav-link">
-                                Pokémons
-                            </a>
+                            <a href="{{ route('pokemon.create') }}" class="nav-link">Nouveau pokemon</a>
                         </li>
                         @auth
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">Nouveau pokemon</a>
-                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('users.logout') }}" class="nav-link">Déconnexion</a>
                             </li>

@@ -51,7 +51,7 @@ class Move_PokemonSeeder extends Seeder
                     // Rajouter dans l'array'
                     $movesPokemonsToCreate[] = $movePokemonToCreate;
                 }
-                DB::table('move__pokemon')->insert($movesPokemonsToCreate);
+                DB::table('move_pokemon')->insert($movesPokemonsToCreate);
             }
         } while (null !== $url); // On sort quand il n'y a plus de next page
     }

@@ -9,11 +9,17 @@ class Pokemon extends Model
 {
     use HasFactory;
     
-    public function user(){
+    protected $table = 'pokemons';
+    
+    public function user() {
         return $this->belongsToMany(User::class);
     }
     
     public function type() {
-        return $this->hasMany(Type::class);
+        return $this->belongsTo(Type::class, 'type_id');
+    }
+
+    public function moves() {
+        return $this->belongsToMany(Move::class);
     }
 }

@@ -32,3 +32,14 @@ Route::get('/logout', [UserController::class, 'logout'])->name('users.logout');
 // Pokemons
 Route::get('/pokemons', [PokemonController::class, 'list'])->name('pokemons');
 Route::get('/pokemon/{id}', [PokemonController::class, 'pokemon'])->name('pokemon');
+
+// Create pokemon
+Route::get('/pokemons/create', [PokemonController::class, 'create'])->name('pokemon.create');
+Route::post('/pokemons/create', [PokemonController::class, 'postCreate'])->name('pokemon.create.post');
+
+// Update pokemon
+Route::get('/pokemon/{id}/update', [PokemonController::class, 'update'])->name('pokemon.update');
+Route::post('/pokemon/{id}/update', [PokemonController::class, 'postUpdate'])->name('pokemon.update.post');
+
+// Delete pokemon
+Route::delete('/pokemons/{id}/delete', [PokemonController::class, 'delete'])->name('pokemon.delete');

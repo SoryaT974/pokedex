@@ -14,4 +14,5 @@
         </li>
         @endforeach
     </ul>
+    {{ $pokemons->links() }}
 @endsection
